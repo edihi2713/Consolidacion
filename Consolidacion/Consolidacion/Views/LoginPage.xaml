@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Consolidacion.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Login"
+             BackgroundColor="#5F9EA0">
+
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout
+            Orientation="Vertical">
+
+
+                <Label
+                Margin="20,50,20,5"
+                Text="Consolidación CFE"
+                FontSize="50"   
+                FontAttributes="Bold"
+                TextColor="White"
+                FontFamily="Broken-Heart.ttf#Broken-Heart"
+                HorizontalOptions="Center"
+                >
+                </Label>
+
+
+
+                <Grid
+               Margin="20,20,20,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+
+
+
+                    <Entry
+                    Text="{Binding Email, Mode=TwoWay}"
+                    Grid.Row="0"
+                    Placeholder="Usuario"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="White">
+                    </Entry>
+
+
+                    <Entry
+                    Grid.Row="1"
+                    IsPassword="True"
+                    Placeholder="Contraseña"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="White"
+                     Text="{Binding Password, Mode=TwoWay}">
+                    </Entry>
+
+                    <Button Grid.Row="2"
+                    Text="Ingresar"
+                    BackgroundColor="OrangeRed"
+                    Command="{Binding LoginCommand}"
+                    HorizontalOptions="FillAndExpand"></Button>
+
+                    <Button Grid.Row="3"
+                    Text="Registrar"
+                    BackgroundColor="PapayaWhip"
+                    HorizontalOptions="FillAndExpand"></Button>
+                </Grid>
+
+
+            <ActivityIndicator
+                IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                ></ActivityIndicator>
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                        Text="Recordarme"
+                        FontSize="25">
+                    </Label>
+                    <Switch
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}">
+                    </Switch>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>
